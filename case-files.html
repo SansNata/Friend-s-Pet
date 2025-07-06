@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Friend's Pet! - Gallery</title>
+    <link rel="icon" type="image/png" href="LogoKucing.png">
+    <style>
+        body {
+            font-family: 'Special Elite', cursive; 
+            margin: 100px;
+            background-color: #34495E;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+            background-size: 30px 30px;
+            color: #FFFFFF;
+        }
+
+        .logo-container {
+            text-align: center;
+        }
+        .logo-container img {
+            width: 250px; 
+            height: auto;
+        }
+        
+        nav {
+            margin: 20px 0;
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        nav a, .dropdown .dropbtn {
+            color: #FFFFFF;
+            font-weight: bold;
+            font-size: 20px;
+            padding: 10px 15px;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+        nav a:hover, .dropdown:hover .dropbtn {
+            text-decoration: underline;
+        }
+        
+        hr {
+            border: 0;
+            height: 2px;
+            background-color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 20px;
+        }
+
+        .gallery-section {
+            margin-bottom: 50px;
+        }
+        .gallery-section h1 {
+            border-bottom: 2px solid rgba(255,255,255,0.5);
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .image-grid a {
+            display: block;
+            background-color: #fdfaee;
+            border: 1px solid #333;
+            box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            border-radius: 3px;
+        }
+        .image-grid img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 1px solid #ccc;
+        }
+        .image-grid a:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 8px 8px 15px rgba(0,0,0,0.5);
+        }
+
+        .animal-name {
+            color: #333;
+            font-weight: bold;
+            font-size: 20px;
+            text-align: center;
+            padding: 15px 10px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown .dropbtn {
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+            font-family: 'Special Elite', cursive;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fdfaee;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
+            z-index: 10;
+            border-radius: 3px;
+            right: 0; 
+        }
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: #e0e0e0;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <audio id="catSound" src="Miaw.mp3" preload="auto"></audio>
+    <audio id="dogSound" src="Dog.mp3" preload="auto"></audio>
+    <audio id="birdSound" src="bird.mp3" preload="auto"></audio>
+    <audio id="hamsterSound" src="hamster.mp3" preload="auto"></audio>
+    <audio id="rabbitSound" src="rabbit.mp3" preload="auto"></audio>
+    <audio id="snakeSound" src="snake.mp3" preload="auto"></audio>
+
+    <div class="logo-container">
+        <img src="LogoKucing.png" alt="Friend's Pet Logo">
+    </div>
+    
+    <nav>
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">Case Files</button>
+            <div class="dropdown-content">
+                <a href="gallery.html">All Pets</a>
+                <a href="case-files.html">Cats</a>
+                <a href="#">Dogs</a>
+                <a href="#">Birds</a>
+                <a href="#">Hamsters</a>
+                <a href="#">Rabbits</a>
+                <a href="#">Snakes</a>
+            </div>
+        </div>
+    </nav>
+
+    <hr>
+
+    <div class="gallery-section">
+        <div class="image-grid">
+            <a href="Kochenk.html" data-sound="catSound">
+                <img src="Kat.jpg" alt="Cat Molly">
+                <div class="animal-name">Cats</div>
+            </a>
+            <a href="ErrorPage.html" data-sound="dogSound">
+                <img src="Doggo.jpg" alt="Dog 1">
+                <div class="animal-name">Dogs</div>
+            </a>
+            <a href="ErrorPage.html" data-sound="birdSound">
+                <img src="Birb.jpg" alt="Bird 1">
+                <div class="animal-name">Birds</div>
+            </a>
+            <a href="ErrorPage.html" data-sound="hamsterSound">
+                <img src="Hampter.jpg" alt="Hamster 1">
+                <div class="animal-name">Hamsters</div>
+            </a>
+            <a href="ErrorPage.html" data-sound="rabbitSound">
+                <img src="Bwabwa.jpg" alt="Rabbit 1">
+                <div class="animal-name">Rabbits</div>
+            </a>
+            <a href="ErrorPage.html" data-sound="snakeSound">
+                <img src="Snak.jpg" alt="Snake 1">
+                <div class="animal-name">Snake</div>
+            </a>
+        </div>
+    </div>
+
+    <!-- UPDATED JavaScript to handle sound on click only -->
+    <script>
+        const animalLinks = document.querySelectorAll('.image-grid a');
+
+        animalLinks.forEach(link => {
+            link.addEventListener('click', function(event) {
+                // Prevent the link from navigating immediately
+                event.preventDefault();
+
+                const soundId = this.getAttribute('data-sound');
+                const sound = document.getElementById(soundId);
+                const destination = this.href;
+
+                if (sound) {
+                    sound.currentTime = 0;
+                    sound.play();
+
+                    // Wait for the sound to finish before going to the new page
+                    sound.onended = function() {
+                        window.location.href = destination;
+                    };
+                    
+                    // Fallback in case the 'onended' event doesn't fire
+                    setTimeout(() => {
+                        // Check if we haven't already navigated
+                        if (window.location.href !== destination) {
+                            window.location.href = destination;
+                        }
+                    }, 700); // 700ms delay
+
+                } else {
+                    // If no sound is found, navigate immediately
+                    window.location.href = destination;
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

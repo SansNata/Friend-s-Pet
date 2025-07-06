@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Friend's Pet! - Case Files</title>
+    
+    <link rel="icon" type="image/png" href="LogoKucing.png">
+
+    <style>
+        body {
+            font-family: 'Special Elite', cursive; 
+            margin: 100px;
+            background-color: #34495E;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        .logo-container {
+            text-align: center; 
+            margin-bottom: 5px;
+        }
+        .logo-container img {
+            width: 250px; 
+            height: auto;
+        }
+        
+        nav {
+            text-align: left;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        nav a {
+            color: #FFFFFF;
+            font-weight: bold;
+            font-size: 20px;
+            padding: 10px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        
+        hr {
+            border: 0;
+            height: 2px;
+            background-color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            text-align: left;
+            color: #FFFFFF;
+        }
+        .container {
+            display: block;
+        }
+        
+        
+        .cat-item {
+            background-color: #fdfaee;
+            border: 1px solid #333;
+            border-radius: 3px;
+            padding: 25px;
+            margin-bottom: 25px; 
+            display: flex;
+            align-items: center; 
+            box-shadow: 5px 5px 10px rgba(0,0,0,0.3); 
+            cursor: pointer;
+            overflow: hidden;
+            position: relative; 
+        }
+        
+        .cat-item img {
+            width: 40%; 
+            height: auto;
+            border: 5px solid white;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+            filter: grayscale(100%);
+            transform: translateX(65%) rotate(-3deg);
+            transition: transform 0.6s ease-in-out, filter 0.6s ease-in-out;
+            flex-shrink: 0; 
+	    z-index: 9; 
+        }
+        
+        .text-content {
+            flex-grow: 1; 
+            padding-left: 25px;
+            opacity: 0; 
+            visibility: hidden;
+            transition: opacity 0.4s ease-in-out 0.2s, visibility 0.4s ease-in-out 0.2s; 
+            position: relative;
+        }
+
+        
+        
+        .cat-item.is-active img {
+           
+            transform: translateX(0%) rotate(0deg);
+            filter: grayscale(0%); 
+        }
+
+        .cat-item.is-active .text-content {
+            opacity: 1; 
+            visibility: visible;
+        }
+
+        
+        .header {
+            font-size: 36px; 
+            font-weight: bold; 
+            color: #000;
+            margin: 0 0 5px 0; 
+            border-bottom: 2px solid #333;
+        }
+        .biography {
+            font-size: 28px;
+            color: #666;
+            margin: 10px 0;
+	        font-weight: bold; 	
+        }
+        .bio-table {
+            width: 100%;
+            border-collapse: collapse;      
+        }
+        .bio-table td {
+            font-size: 18px; 
+            padding: 5px 0;
+        }
+        .bio-table td:first-child {
+            font-weight: bold;
+            padding-right: 10px;
+            color: #444;
+        }
+        .case-stamp {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #a00;
+            border: 5px double #a00;
+            padding: 5px 10px;
+            transform: rotate(10deg);
+            opacity: 0.7;
+            text-transform: uppercase;
+            z-index: 5; 
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <audio id="openSound" src="Paper.mp3" preload="auto"></audio>
+
+    <div class="logo-container">
+        <img src="LogoKucing.png" alt="Friend's Pet Logo">
+    </div>
+ 
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="case-files.html">Case Files</a>
+    </nav>
+    <hr>
+    <div class="container">
+
+        <div class="cat-item">
+            <img src="Molly.jpg" alt="A cat">
+            <div class="case-stamp">Confidential</div>
+            <div class="text-content">
+                <p class="header"><b>Molly</b></p>
+                <p class="biography">Subject Biography</p>
+                <table class="bio-table">
+                    <tr><td>Codename</td><td>: Molly The Dumb</td></tr>
+                    <tr><td>Last Known Location</td><td>: Tanah Tinggi</td></tr>
+                    <tr><td>Intake Date</td><td>: 17-07-2019</td></tr>
+                    <tr><td>Stolen Goods</td><td>: Guest Items</td></tr>
+                    <tr><td>Criminal Record</td><td>: Illicit defecation, ignorance, bad odor, repeated escape attempts.</td></tr>
+                </table>
+            </div>
+        </div>
+        
+        <div class="cat-item">
+            <img src="Leon.jpg" alt="A cat">
+            <div class="case-stamp">Confidential</div>
+            <div class="text-content">
+                <p class="header"><b>Leon</b></p>
+                <p class="biography">Subject Biography</p>
+                <table class="bio-table">
+                    <tr><td>Codename</td><td>: Leon The Embodiment of Chaos</td></tr>
+                    <tr><td>Last Known Location</td><td>: Tanah Tinggi</td></tr>
+                    <tr><td>Intake Date</td><td>: 19-07-2022</td></tr>
+                    <tr><td>Stolen Goods</td><td>: Guest Items</td></tr>
+                    <tr><td>Criminal Record</td><td>: Illicit defecation, aggravated burglary, assault, repeated escape attempts.</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="cat-item">
+            <img src="Snowy.jpg" alt="A cat">
+            <div class="case-stamp">Confidential</div>
+            <div class="text-content">
+                <p class="header"><b>Snowy</b></p>
+                <p class="biography">Subject Biography</p>
+                <table class="bio-table">
+                    <tr><td>Codename</td><td>: Snowy The White</td></tr>
+                    <tr><td>Last Known Location</td><td>: Karawaci</td></tr>
+                    <tr><td>Intake Date</td><td>: 10-10-2021</td></tr>
+                    <tr><td>Stolen Goods</td><td>: Baseball, feather teaser</td></tr>
+                    <tr><td>Criminal Record</td><td>: Illicit defecation, homicidal, assault, repeated escape attempts.</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="cat-item">
+            <img src="Bolu.jpg" alt="A cat">
+            <div class="case-stamp">Confidential</div>
+            <div class="text-content">
+                <p class="header"><b>Bolu</b></p>
+                <p class="biography">Subject Biography</p>
+                <table class="bio-table">
+                    <tr><td>Codename</td><td>: Bolu The Energetic</td></tr>
+                    <tr><td>Last Known Location</td><td>: Tangerang</td></tr>
+                    <tr><td>Intake Date</td><td>: 10-07-2023</td></tr>
+                    <tr><td>Damaged Property</td><td>: People's hands</td></tr>
+                    <tr><td>Criminal Record</td><td>: Seduction, vandalism, assault, aggravated burglary.</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="cat-item">
+            <img src="Piko.jpg" alt="A cat">
+            <div class="case-stamp">Confidential</div>
+            <div class="text-content">
+                <p class="header"><b>Piko</b></p>
+                <p class="biography">Subject Biography</p>
+                <table class="bio-table">
+                    <tr><td>Codename</td><td>: Piko The Gangster</td></tr>
+                    <tr><td>Last Known Location</td><td>: Ciledug</td></tr>
+                    <tr><td>Intake Date</td><td>: 14-06-2025</td></tr>
+                    <tr><td>Stolen Property</td><td>: Car tires</td></tr>
+                    <tr><td>Criminal Record</td><td>: Burglary, illicit defacation.</td></tr>
+                </table>
+            </div>
+        </div>
+        
+        <div class="cat-item">
+            <img src="Misha.jpg" alt="A cat">
+            <div class="case-stamp">Confidential</div>
+            <div class="text-content">
+                <p class="header"><b>Misha</b></p>
+                <p class="biography">Subject Biography</p>
+                <table class="bio-table">
+                    <tr><td>Codename</td><td>: Misha The Guardian</td></tr>
+                    <tr><td>Last Known Location</td><td>: Tanah Tinggi</td></tr>
+                    <tr><td>Intake Date</td><td>: 4-05-2024</td></tr>
+                    <tr><td>Stolen Property</td><td>: Paper</td></tr>
+                    <tr><td>Criminal Record</td><td>: Illicit defacation, assault, ignorace, vandalism.</td></tr>
+                </table>
+            </div>
+        </div>
+        
+        <div class="cat-item">
+            <img src="Rawon.jpg" alt="A cat">
+            <div class="case-stamp">Confidential</div>
+            <div class="text-content">
+                <p class="header"><b>Rawon</b></p>
+                <p class="biography">Subject Biography</p>
+                <table class="bio-table">
+                    <tr><td>Codename</td><td>: Rawon The Black</td></tr>
+                    <tr><td>Last Known Location</td><td>: Tangerang</td></tr>
+                    <tr><td>Intake Date</td><td>: 10-07-2023</td></tr>
+                    <tr><td>Damages Goods</td><td>: People's hands</td></tr>
+                    <tr><td>Criminal Record</td><td>: Seduction, vandalism, assault, aggravated burglary.</td></tr>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+
+    <script>
+        // Get the audio element from the page
+        const openSound = document.getElementById('openSound');
+
+        // Select all the case files
+        const caseFiles = document.querySelectorAll('.cat-item');
+
+        // Loop through each case file
+        caseFiles.forEach(function(file) {
+            // Add a "click" listener to each one
+            file.addEventListener('click', function() {
+                
+                // Play the sound effect if it exists
+                if (openSound) {
+                    openSound.currentTime = 0; // Rewind to the start
+                    openSound.play();
+                }
+
+                // Toggle the active class to show/hide the content
+                this.classList.toggle('is-active');
+            });
+        });
+    </script>
+
+</body>
+</html>
