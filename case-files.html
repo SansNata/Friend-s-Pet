@@ -190,13 +190,13 @@
         </div>
     </div>
 
-    <!-- UPDATED JavaScript to handle sound on click only -->
+    
     <script>
         const animalLinks = document.querySelectorAll('.image-grid a');
 
         animalLinks.forEach(link => {
             link.addEventListener('click', function(event) {
-                // Prevent the link from navigating immediately
+                
                 event.preventDefault();
 
                 const soundId = this.getAttribute('data-sound');
@@ -207,21 +207,21 @@
                     sound.currentTime = 0;
                     sound.play();
 
-                    // Wait for the sound to finish before going to the new page
+                    
                     sound.onended = function() {
                         window.location.href = destination;
                     };
                     
-                    // Fallback in case the 'onended' event doesn't fire
+                    
                     setTimeout(() => {
-                        // Check if we haven't already navigated
+                        
                         if (window.location.href !== destination) {
                             window.location.href = destination;
                         }
-                    }, 700); // 700ms delay
+                    }, 700); 
 
                 } else {
-                    // If no sound is found, navigate immediately
+                    
                     window.location.href = destination;
                 }
             });
