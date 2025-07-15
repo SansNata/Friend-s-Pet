@@ -1,0 +1,496 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
+body {
+    font-family: 'Special Elite', cursive;
+    margin: 0;
+    padding: 100px;
+    background-color: #34495E;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+    background-size: 30px 30px;
+    color: #FFFFFF;
+    box-sizing: border-box;
+}
+
+/* Define a scale-up animation */
+@keyframes scaleUp {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Logo */
+.logo-container {
+    text-align: center;
+    margin-bottom: 5px;
+    margin-left: auto;
+}
+.logo-container img {
+    width: 250px;
+    height: auto;
+    display: block; /* Ensure it's a block element for margin: auto centering if needed */
+    margin: 0 auto; /* Center the image within its container */
+
+    /* Apply initial state and animation */
+    transform: scale(0); /* Start small */
+    opacity: 0; /* Start invisible */
+    animation: scaleUp 0.8s ease-out forwards; /* Apply animation */
+    animation-delay: 0.1s; /* Optional: Add a slight delay */
+}
+.index-logo .logo-container img {
+    width: 300px;
+    /* The animation will scale to this final width */
+}
+
+/* Navigation */
+nav {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+nav a, .dropdown .dropbtn {
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px 15px;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 4px;
+    margin: 0 5px;
+    background: none;
+    cursor: pointer;
+    font-family: 'Special Elite', cursive;
+}
+nav a:hover, .dropdown:hover .dropbtn {
+    background-color: rgba(255,255,255,0.1);
+    text-decoration: underline;
+}
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fdfaee;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
+    z-index: 10;
+    border-radius: 3px;
+    right: 0;
+}
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    border: none;
+    background: none;
+    font-size: 18px;
+}
+.dropdown-content a:hover {
+    background-color: #e0e0e0;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Define an animation for the horizontal rule */
+@keyframes drawHr {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* Horizontal Rule */
+hr {
+    border: 0;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 20px;
+    /* Apply initial state for animation */
+    width: 0; /* Start with zero width */
+    /* Apply the animation */
+    animation: drawHr 1s ease-out forwards; /* 1 second duration, ease-out timing, stay at end state */
+    animation-delay: 0.5s; /* Optional: Add a slight delay after the page loads */
+}
+
+/* Define a fade-in and slide-up animation */
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Homepage Welcome */
+.welcome-container {
+    text-align: center;
+    margin-top: 50px;
+    padding: 40px;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 5px;
+    /* transition: width 2s, height 4s; /* Keep or remove if not needed */
+
+    /* Apply initial state and animation */
+    opacity: 0; /* Start invisible */
+    transform: translateY(20px); /* Start slightly below */
+    animation: fadeInSlideUp 0.8s ease-out forwards; /* Apply animation */
+    animation-delay: 0.2s; /* Delay the container animation slightly */
+}
+.welcome-container h1 {
+    font-size: 48px;
+    margin: 0;
+    /* Apply initial state and animation */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUp 0.8s ease-out forwards;
+    animation-delay: 0.6s; /* Delay after container */
+}
+.welcome-container p {
+    font-size: 20px;
+    max-width: 600px;
+    margin: 20px auto 30px auto;
+    line-height: 1.6;
+    /* Apply initial state and animation */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUp 0.8s ease-out forwards;
+    animation-delay: 1s; /* Delay after h1 */
+}
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 22px;
+    font-family: 'Special Elite', cursive;
+    font-weight: bold;
+    color: #34495E;
+    background-color: #fdfaee;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease;
+
+    /* Apply initial state and animation */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUp 0.8s ease-out forwards;
+    animation-delay: 1.4s; /* Delay after p */
+}
+.cta-button:hover {
+    transform: scale(1.05);
+}
+
+/* Gallery */
+.gallery-section {
+    margin-bottom: 50px;
+}
+.gallery-section h1 {
+    border-bottom: 2px solid rgba(255,255,255,0.5);
+    padding-bottom: 10px;
+    text-align: center;
+}
+.image-grid {
+    display: grid;
+    /* This creates a 3-column grid, which will result in 2 rows for 6 items. */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.image-grid a {
+    display: block;
+    background-color: #fdfaee;
+    border: 1px solid #333;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    border-radius: 3px;
+}
+.image-grid img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid #ccc;
+}
+.image-grid a:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 8px 8px 15px rgba(0,0,0,0.5);
+}
+.animal-name {
+    color: #333;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    padding: 15px 10px;
+}
+
+/* Case File Cards */
+.container {
+    display: block;
+}
+.cat-item {
+    background-color: #fdfaee;
+    border: 1px solid #333;
+    border-radius: 3px;
+    padding: 25px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+}
+.cat-item img {
+    width: 40%;
+    height: auto;
+    border: 5px solid white;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+    filter: grayscale(100%);
+    transform: translateX(65%) rotate(-3deg);
+    transition: transform 0.6s ease-in-out, filter 0.6s ease-in-out;
+    flex-shrink: 0;
+    z-index: 9;
+}
+.text-content {
+    flex-grow: 1;
+    padding-left: 25px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease-in-out 0.2s, visibility 0.4s ease-in-out 0.2s;
+    position: relative;
+}
+.cat-item.is-active img {
+    transform: translateX(0%) rotate(0deg);
+    filter: grayscale(0%);
+}
+.cat-item.is-active .text-content {
+    opacity: 1;
+    visibility: visible;
+}
+.header {
+    font-size: 36px;
+    font-weight: bold;
+    color: #000;
+    margin: 0 0 5px 0;
+    border-bottom: 2px solid #333;
+}
+.biography {
+    font-size: 28px;
+    color: #666;
+    margin: 10px 0;
+    font-weight: bold;
+}
+.bio-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #000;
+}
+.bio-table td {
+    font-size: 18px;
+    padding: 5px 0;
+}
+.bio-table td:first-child {
+    font-weight: bold;
+    padding-right: 10px;
+    color: #444;
+}
+.case-stamp {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #a00;
+    border: 5px double #a00;
+    padding: 5px 10px;
+    transform: rotate(10deg);
+    opacity: 0.7;
+    text-transform: uppercase;
+    z-index: 5;
+}
+
+/* 404 Page */
+body.error-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;      /* Ensure full viewport height */
+    margin-left: auto;
+    margin: 0;          /* Remove default margin */
+    padding: 0;         /* Remove default padding */
+}
+.error-container {
+    background-color: #fdfaee;
+    border: 1px solid #333;
+    border-radius: 3px;    
+    margin-right: auto;
+    margin-left: auto;
+    padding: 40px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.error-watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-10deg);
+    font-size: 200px;
+    font-weight: bold;
+    color: rgba(0,0,0,0.05);
+    z-index: 1;
+}
+.error-header {
+    font-size: 48px;
+    font-weight: bold;
+    color: #a00;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+}
+.error-subheader {
+    font-size: 24px;
+    color: #333;
+    margin: 10px 0 25px 0;
+    position: relative;
+    z-index: 2;
+}
+.error-message {
+    font-size: 18px;
+    color: #444;
+    line-height: 1.7;
+    text-align: left;
+    border-top: 1px dashed #aaa;
+    padding-top: 20px;
+    position: relative;
+    z-index: 2;
+}
+.return-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 25px;
+    font-size: 18px;
+    font-family: 'Special Elite', cursive;
+    font-weight: bold;
+    color: #fdfaee;
+    background-color: #c0392b;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease;
+    position: relative;
+    z-index: 2;
+}
+.return-button:hover {
+    transform: scale(1.05);
+}
+
+/* --- Footer --- */
+footer {
+    /* Set position to relative to act as a container for the absolute popup */
+    position: relative; 
+    text-align: center;
+    margin-top: 80px;
+    padding-top: 20px;
+    border-top: 2px solid rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-links {
+    margin-bottom: 15px;
+}
+
+/* Style for the main "Contact" link */
+.footer-links a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 18px;
+    display: inline-block;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 8px 15px;
+    border-radius: 4px;
+    background: none;
+    transition: background-color 0.2s ease;
+}
+
+.footer-links a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Contact Popup Styles */
+.contact-popup {
+    display: none; /* Hidden by default */
+    position: absolute;
+    bottom: 60px; /* Position it above the footer links */
+    left: 50%;
+    transform: translateX(-50%); /* Center the popup */
+    background-color: #fdfaee;
+    color: #333;
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0px -4px 12px rgba(0, 0, 0, 0.25);
+    z-index: 100;
+    width: 320px;
+    text-align: left;
+}
+
+/* This class will be added by JavaScript to show the popup */
+.contact-popup.show {
+    display: block;
+}
+
+.contact-popup .contact-table {
+    width: 100%;
+}
+
+.contact-popup .contact-table td {
+    padding: 8px 5px;
+    font-size: 16px;
+}
+
+/* Styles for the links inside the popup */
+.contact-popup .contact-table a {
+    color: #c0392b;
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 16px;
+    border: none;
+    padding: 0;
+    display: inline;
+}
+
+.contact-popup .contact-table a:hover {
+    text-decoration: underline;
+    background: none;
+}
+
+.footer-copyright {
+    margin-top: 15px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+}

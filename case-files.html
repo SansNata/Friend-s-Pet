@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Friend's Pet! - Gallery</title>
+    <link rel="icon" type="image/png" href="LogoKucing.png">
+    <link rel="stylesheet" href="../Assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <audio id="catSound" src="../Assets/Sound Effect/Miaw.mp3" preload="auto"></audio>
+    <audio id="dogSound" src="../Assets/Sound Effect/Dog.mp3" preload="auto"></audio>
+    <audio id="birdSound" src="../Assets/Sound Effect/bird.mp3" preload="auto"></audio>
+    <audio id="hamsterSound" src="../Assets/Sound Effect/hamster.mp3" preload="auto"></audio>
+    <audio id="rabbitSound" src="../Assets/Sound Effect/rabbit.mp3" preload="auto"></audio>
+    <audio id="snakeSound" src="../Assets/Sound Effect/snake.mp3" preload="auto"></audio>
+
+    <div class="logo-container">
+        <a href="index.html">
+            <img src="LogoKucing.png" alt="Friend's Pet Logo">
+    </div>
+</a>
+    
+    <nav>
+        <a href="index.html">Home</a>
+    </nav>
+
+    <hr>
+
+    <div class="gallery-section">
+        <div class="image-grid">
+            <a href="Kochenk.html" data-sound="catSound">
+                <img src="../Assets/Image/Cats/Kat.jpg" alt="Cat Molly">
+                
+            </a>
+            <a href="404.html" data-sound="dogSound">
+                <img src="../Assets/Image/Dogs/Doggo.jpg" alt="Dog 1">
+                
+            </a>
+            <a href="404.html" data-sound="birdSound">
+                <img src="../Assets/Image/Birds/Birb.jpg" alt="Bird 1">
+                
+            </a>
+            <a href="404.html" data-sound="hamsterSound">
+                <img src="../Assets/Image/Hamsters/Hampter.jpg" alt="Hamster 1">
+                
+            </a>
+            <a href="404.html" data-sound="rabbitSound">
+                <img src="../Assets/Image/Rabbits/Bwabwa.jpg" alt="Rabbit 1">
+                
+            </a>
+            <a href="404.html" data-sound="snakeSound">
+                <img src="../Assets/Image/Snakes/Snak.jpg" alt="Snake 1">
+                
+            </a>
+        </div>
+    </div>
+
+    <!-- UPDATED JavaScript to handle sound on click only -->
+    <script>
+        const animalLinks = document.querySelectorAll('.image-grid a');
+
+        animalLinks.forEach(link => {
+            link.addEventListener('click', function(event) {
+                // Prevent the link from navigating immediately
+                event.preventDefault();
+
+                const soundId = this.getAttribute('data-sound');
+                const sound = document.getElementById(soundId);
+                const destination = this.href;
+
+                if (sound) {
+                    sound.currentTime = 0;
+                    sound.play();
+
+                    // Wait for the sound to finish before going to the new page
+                    sound.onended = function() {
+                        window.location.href = destination;
+                    };
+                    
+                    // Fallback in case the 'onended' event doesn't fire
+                    setTimeout(() => {
+                        // Check if we haven't already navigated
+                        if (window.location.href !== destination) {
+                            window.location.href = destination;
+                        }
+                    }, 700); // 700ms delay
+
+                } else {
+                    // If no sound is found, navigate immediately
+                    window.location.href = destination;
+                }
+            });
+        });
+    </script>
+  <!-- UPDATED FOOTER SECTION -->
+    <footer>
+        <div class="footer-links">
+            <!-- This link will now trigger the popup -->
+            <a href="#" id="contactLink">Contact</a>
+        </div>
+        <p class="footer-copyright">© 2024 Friend's Pet Detective Agency. All Rights Reserved.</p>
+
+        <!-- This is the popup that will be shown on click -->
+        <div id="contactPopup" class="contact-popup">
+            <table class="contact-table">
+                <tr>
+                    <td><strong>Phone:</strong></td>
+                    <td><a href="https://wa.me/6285591412985" target="_blank">085591412985</a></td>
+                </tr>
+                <tr>
+                    <td><strong>Email:</strong></td>
+                    <td><a href="https://mail.google.com/mail/u/0/" target="_blank">ikhasnie89@gmail.com</a></td>
+                </tr>
+                <tr>
+                    <td><strong>Instagram:</strong></td>
+                    <td><a href="https://www.instagram.com/cats_of_instagram/" target="_blank">@PetDetectives</a></td>
+                </tr>
+            </table>
+        </div>
+    </footer>
+
+    <!-- JavaScript to control the popup -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactLink = document.getElementById('contactLink');
+            const contactPopup = document.getElementById('contactPopup');
+
+            // Show/hide the popup when the contact link is clicked
+            contactLink.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevents the link from navigating to '#'
+                event.stopPropagation(); // Prevents the click from immediately closing the popup
+                contactPopup.classList.toggle('show');
+            });
+
+            // Close the popup if the user clicks anywhere else on the page
+            window.addEventListener('click', function(event) {
+                // Check if the popup is shown and the click was outside of it
+                if (contactPopup.classList.contains('show') && !contactPopup.contains(event.target)) {
+                    contactPopup.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
